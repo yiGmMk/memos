@@ -14,6 +14,7 @@ RUN pnpm build
 FROM golang:1.21-alpine AS backend
 WORKDIR /backend-build
 
+ENV GOPROXY https://goproxy.cn,direct
 COPY . .
 COPY --from=frontend /frontend-build/dist ./server/dist
 
